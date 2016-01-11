@@ -59,6 +59,9 @@ class DefaultController extends FrontendController
                 'pageSizeParam' => false
             ],
         ]);
+        if (\Yii::$app->request->isAjax) {
+            return $this->renderAjax('index', ['dataProvider' => $dataProvider, 'categoryLabel' => $categoryLabel]);
+        }
 
         return $this->render('index', ['dataProvider' => $dataProvider, 'categoryLabel' => $categoryLabel]);
     }

@@ -28,14 +28,14 @@ class SiteController extends FrontendController
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 1,
+                'pageSize' => Article::PAGE_SIZE,
                 'pageSizeParam' => false
             ],
         ]);
 
         PageSeo::registerSeo(PageSeo::ID_HOME_PAGE);
 
-        return $this->render('index', ['dataProvider' => $dataProvider]);
+        return $this->render('../modules/article/views/default/index', ['dataProvider' => $dataProvider]);
     }
 
     public function actionRobots()

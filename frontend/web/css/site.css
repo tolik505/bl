@@ -106,3 +106,21 @@ body {
 .list-title {
     margin-bottom: 20px;
 }
+
+.hidden-header {
+    height: 76px;
+}
+
+.navbar-default .navbar-nav > li.active > a {
+    border-color: #00afd1;
+    color: #00afd1;
+    border-bottom: 2px solid;
+    background-color: white;
+}
+.navbar-default .navbar-nav > li.active > a:hover {
+    color: #00afd1;
+    background-color: white;
+}
+.navbar-default .navbar-nav > li.active > a:after {
+    opacity: 1;
+}

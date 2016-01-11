@@ -92,4 +92,15 @@ $(function(){
     $(document).on('pjax:end', function() {
         $('#loader').fadeOut();
     });
+
+    $(document).on("submit", ".search-form", function(e){
+        e.preventDefault();
+        var that = $(this);
+        var query = that.find('input[type=search]').val();
+        if (query) {
+            var href = that.data('url') + '/' + query;
+            var a = that.find('a');
+            a.attr('href', href).trigger('click');
+        }
+    });
 });

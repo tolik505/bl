@@ -10,11 +10,18 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="page-404">
-    <div class="wrap">
-        <span><?= Html::encode($this->title) ?></span>
-        <strong><?= Html::encode($code) ?></strong>
+<?= $this->render('@app/themes/basic/layouts/_header', ['breadcrumbsLinks' => null]) ?>
+
+<div class="page-content">
+
+
+    <div class="error-page">
+        <h1><?= Html::encode($code) ?></h1>
+        <h3><?= Html::encode($this->title) ?></h3>
         <p><?= nl2br(Html::encode($message)) ?></p>
-        <a href="/" class="btn green"><?= Yii::t('app', 'back to main') ?></a>
+        <div class="text-center"><a href="<?= Yii::$app->homeUrl ?>" class="btn-system btn-small"><?= Yii::t('app', 'Back To Home') ?></a></div>
     </div>
+
+
 </div>
+<?= $this->render('@app/themes/basic/layouts/_footer') ?>

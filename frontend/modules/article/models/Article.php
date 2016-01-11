@@ -34,4 +34,26 @@ class Article extends \common\models\Article {
             ->andWhere('depth > 0')
             ->count();
     }
+
+    /** @return array */
+    public function getBreadcrumbsLinks()
+    {
+        if ($this->category) {
+            return [
+                [
+                    'label' => $this->category->label,
+                    'url' => $this->category->getIndexUrl()
+                ],
+                [
+                    'label' => $this->label,
+                ]
+            ];
+        }
+
+        return [
+            [
+                'label' => $this->label,
+            ]
+        ];
+    }
 }

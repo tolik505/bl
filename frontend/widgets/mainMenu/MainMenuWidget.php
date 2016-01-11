@@ -3,15 +3,8 @@
 namespace frontend\widgets\mainMenu;
 
 
-use common\components\model\PageUrl;
-use frontend\modules\advice\models\Advice;
+use frontend\components\DummyModel;
 use frontend\modules\article\models\ArticleCategory;
-use frontend\modules\club\models\Club;
-use frontend\modules\product\models\Category;
-use frontend\modules\product\models\SubCategory;
-use frontend\modules\rent\RentModule;
-use frontend\modules\service\models\Service;
-use yii\db\Query;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -28,6 +21,10 @@ class MainMenuWidget extends Menu
 
         $this->encodeLabels = false;
 
+        $this->items[] = [
+            'label' => \Yii::t('app', 'Home'),
+            'url' => [DummyModel::getHomeRoute()],
+        ];
         /** @var ArticleCategory[] $categories */
         $categories = ArticleCategory::find()
             ->isPublished()
@@ -49,7 +46,7 @@ class MainMenuWidget extends Menu
      * @param array $item the menu item to be rendered. Please refer to [[items]] to see what data might be in the item.
      * @return string the rendering result
      */
-    /*protected function renderItem($item)
+    protected function renderItem($item)
     {
         if (isset($item['url'])) {
             $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
@@ -66,5 +63,5 @@ class MainMenuWidget extends Menu
                 '{label}' => $item['label'],
             ]);
         }
-    }*/
+    }
 }

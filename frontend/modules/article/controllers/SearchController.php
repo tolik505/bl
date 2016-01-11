@@ -25,7 +25,7 @@ class SearchController extends FrontendController
         $dataProvider = new ActiveDataProvider([
             'query' => $queryData,
             'pagination' => [
-                'pageSize' => Article::PAGE_SIZE,
+                'pageSize' => 1,
                 'pageSizeParam' => false
             ],
         ]);
@@ -33,7 +33,6 @@ class SearchController extends FrontendController
         return $this->render('../default/index', [
             'dataProvider' => $dataProvider,
             'query' => $query,
-            'categoryLabel' => \Yii::t('app', 'Search')
-        ]);
+            'categoryLabel' => \Yii::t('app', 'Search')]);
     }
 }

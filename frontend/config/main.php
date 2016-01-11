@@ -106,7 +106,7 @@ return [
             ],
         ],
         'urlManager' => [
-            'class' => 'codemix\localeurls\UrlManager',
+            'class' => 'common\components\UrlManager',
             'enableLanguageDetection' => false,
             'languages' => ['ru'],
             'rules' => require(__DIR__ . '/../../common/config/url-rules.php'),

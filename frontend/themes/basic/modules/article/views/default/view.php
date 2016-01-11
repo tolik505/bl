@@ -1,5 +1,6 @@
 <?php
 /**
+ * @var $this \yii\web\View
  * @var $model \frontend\modules\article\models\Article
  */
 use \metalguardian\fileProcessor\helpers\FPM;
@@ -7,7 +8,7 @@ use \metalguardian\fileProcessor\helpers\FPM;
 $titleImage = $model->titleImage;
 ?>
 
-<?php \yii\widgets\Pjax::begin() ?>
+<?= $this->render('@app/themes/basic/layouts/_header', ['breadcrumbsLinks' => $model->getBreadcrumbsLinks()]) ?>
 
 <div class="row blog-post-page">
     <div class="col-md-9 blog-box">
@@ -59,4 +60,4 @@ $titleImage = $model->titleImage;
 
     <?= $this->renderFile($this->theme->getPath('layouts/_side-bar.php')) ?>
 </div>
-<?php \yii\widgets\Pjax::end() ?>
+<?= $this->render('@app/themes/basic/layouts/_footer') ?>

@@ -3,17 +3,19 @@
 /* @var $dataProvider */
 /* @var $query string */
 /* @var $categoryLabel string */
+
+$breadcrumbsLinks = isset($categoryLabel) ?
+    [
+        [
+            'label' => $categoryLabel
+        ]
+    ] :
+    null
 ?>
-<?php \yii\widgets\Pjax::begin() ?>
 
-<?php $this->beginBlock('breadcrumbs'); ?>
-
-<ul class="breadcrumbs">
-    <li><a href="<?= Yii::$app->homeUrl ?>"><?= Yii::t('app', 'Home') ?></a></li>
-    <li><?= $categoryLabel ?></li>
-</ul>
-
-<?php $this->endBlock(); ?>
+<?= $this->render('@app/themes/basic/layouts/_header', [
+    'breadcrumbsLinks' => $breadcrumbsLinks
+]) ?>
 
 <div class="row blog-page">
     <!-- Start Blog Posts -->
@@ -23,7 +25,7 @@
         <?php } ?>
         <?= \yii\widgets\ListView::widget([
             'dataProvider' => $dataProvider,
-            'itemView' => '../../../../site/_article_item',
+            'itemView' => '_article_item',
             'itemOptions' => ['tag' => false],
             'layout' => "{items}",
         ]); ?>
@@ -36,4 +38,4 @@
 
 <?= $this->renderFile($this->theme->getPath('layouts/_side-bar.php')) ?>
 </div>
-<?php \yii\widgets\Pjax::end() ?>
+<?= $this->render('@app/themes/basic/layouts/_footer') ?>

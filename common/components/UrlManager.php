@@ -61,4 +61,13 @@ class UrlManager extends \codemix\localeurls\UrlManager {
         \Yii::$app->response->redirect($url);
     }
 
-} 
+    /** @inheritdoc */
+    public function createUrl($params)
+    {
+        if (isset($params[$this->pageParam]) && in_array($params[$this->pageParam], [0, 1])) {
+            unset($params[$this->pageParam]);
+        }
+
+        return parent::createUrl($params);
+    }
+}
