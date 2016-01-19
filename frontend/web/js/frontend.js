@@ -48,7 +48,7 @@ $(function(){
         return false;
     });
 
-    $(document).on('submit', '.ajax-form', function (event) {console.log(12121);
+    $(document).on('submit', '.ajax-form', function (event) {
         event.preventDefault();
         var form = $(this);
         jQuery.ajax({

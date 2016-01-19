@@ -2,8 +2,10 @@
 
 namespace common\models;
 
+use himiklab\sitemap\behaviors\SitemapBehavior;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /**
  * @inheritdoc
@@ -41,6 +43,22 @@ class Article extends \common\models\base\Article implements \common\components\
             ],
             'timestamp' => [
                 'class' => \yii\behaviors\TimestampBehavior::className(),
+            ],
+            'sitemap' => [
+                'class' => SitemapBehavior::className(),
+                'scope' => function ($model) {
+                    /** @var \yii\db\ActiveQuery $model */
+                    $model->andWhere(['published' => 1]);
+                },
+                'dataClosure' => function ($model) {
+                    /** @var self $model */
+                    return [
+                        'loc' => Url::to($model->getViewUrl(), true),
+                        'lastmod' => $model->updated_at,
+                        'changefreq' => SitemapBehavior::CHANGEFREQ_WEEKLY,
+                        'priority' => 0.8
+                    ];
+                }
             ],
         ]);
     }

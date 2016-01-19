@@ -27,9 +27,13 @@ class MainMenuWidget extends Menu
         ];
         /** @var ArticleCategory[] $categories */
         $categories = ArticleCategory::find()
-            ->isPublished()
-            ->orderBy('position DESC')
+            ->from(['t' => ArticleCategory::tableName()])
+            ->joinWith(['articles'], true, 'RIGHT JOIN')
+            ->andWhere(['t.published' => 1])
+            ->orderBy('t.position DESC')
+            ->groupBy('t.id')
             ->all();
+        \Yii::$app->params['categoryModels'] = $categories;
         foreach ($categories as $category){
             $this->items[] = [
                 'label' => $category->label,

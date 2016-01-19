@@ -12,4 +12,13 @@ use common\components\Translate;
 class ArticleCategory extends \common\models\ArticleCategory {
     use Translate;
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticles()
+    {
+        return $this->hasMany(Article::className(), ['category_id' => 'id'])
+            ->from(['t1' => Article::tableName()])
+            ->andOnCondition(['t1.published' => 1]);
+    }
 }

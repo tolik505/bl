@@ -20,6 +20,10 @@ return [
         ],
     ],
     [
+        'label' => Yii::t('app', 'Subscribe'),
+        'url' => ['/request/mail-request/index'],
+    ],
+    [
         'label' => 'Configuration',
         'url' => ['/configuration/default/index'],
         'items' => [

@@ -16,30 +16,8 @@ return [
         'sitemap' => [
             'class' => 'himiklab\sitemap\Sitemap',
             'models' => [
-                //your models
-                /*
-                'app\modules\news\models\News',
-                //or configuration for creating a behavior
-                [
-                    'class' => 'app\modules\news\models\News',
-                    'behaviors' => [
-                        'sitemap' => [
-                            'class' => SitemapBehavior::className(),
-                            'scope' => function ($model) {
-                                    $model->select(['url', 'lastmod']);
-                                    $model->andWhere(['is_deleted' => 0]);
-                                },
-                            'dataClosure' => function ($model) {
-                                    return [
-                                        'loc' => Url::to($model->url, true),
-                                        'lastmod' => strtotime($model->lastmod),
-                                        'changefreq' => SitemapBehavior::CHANGEFREQ_DAILY,
-                                        'priority' => 0.8
-                                    ];
-                                }
-                        ],
-                    ],
-                ],*/
+                'frontend\modules\article\models\ArticleCategory',
+                'frontend\modules\article\models\Article',
             ],
             'urls'=> [
                 [
@@ -76,14 +54,18 @@ return [
                     ],
                 ],*/
             ],
-            'cacheKey' => 'sitemapCacheKey',
+            'cacheKey' => 'siteMapCacheKey',
             'enableGzip' => false, // default is false
+            'cacheExpire' => 12*3600,
         ],
         'article' => [
             'class' => 'frontend\modules\article\ArticleModule'
         ],
         'comment' => [
             'class' => 'frontend\modules\comment\CommentModule',
+        ],
+        'request' => [
+            'class' => 'frontend\modules\request\RequestModule',
         ],
     ],
     'components' => [
@@ -106,10 +88,8 @@ return [
             ],
         ],
         'urlManager' => [
-            'class' => 'common\components\UrlManager',
             'enableLanguageDetection' => false,
-            'languages' => ['ru'],
-            'rules' => require(__DIR__ . '/../../common/config/url-rules.php'),
+            //'languages' => ['ru'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

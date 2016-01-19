@@ -58,6 +58,9 @@ return [
         'about' => [
             'class' => 'backend\modules\about\AboutModule',
         ],
+        'request' => [
+            'class' => 'backend\modules\request\RequestModule',
+        ],
     ],
     'components' => [
         'config' => [

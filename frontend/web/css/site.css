@@ -124,3 +124,22 @@ body {
 .navbar-default .navbar-nav > li.active > a:after {
     opacity: 1;
 }
+#subscribe .form-group {
+    float: left;
+}
+#subscribe .main-button {
+    margin-left: 3px;
+}
+.error-summary {
+    color: #FF9A9A;
+    background: #222222;
+    border-left: none;
+    padding: 0;
+    margin: 0;
+}
+.error-summary p {
+    display: none;
+}
+.error-summary ul {
+    float: left;
+}

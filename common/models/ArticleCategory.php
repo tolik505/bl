@@ -2,7 +2,9 @@
 
 namespace common\models;
 
+use himiklab\sitemap\behaviors\SitemapBehavior;
 use Yii;
+use yii\helpers\Url;
 
 /**
  * @inheritdoc
@@ -33,6 +35,22 @@ class ArticleCategory extends \common\models\base\ArticleCategory implements \co
             'translateable' => [
                 'class' => \creocoder\translateable\TranslateableBehavior::className(),
                 'translationAttributes' => static::getTranslationAttributes(),
+            ],
+            'sitemap' => [
+                'class' => SitemapBehavior::className(),
+                'scope' => function ($model) {
+                    /** @var \yii\db\ActiveQuery $model */
+                    $model->andWhere(['published' => 1]);
+                },
+                'dataClosure' => function ($model) {
+                    /** @var self $model */
+                    return [
+                        'loc' => Url::to($model->getIndexUrl(), true),
+                        'lastmod' => time(),
+                        'changefreq' => SitemapBehavior::CHANGEFREQ_WEEKLY,
+                        'priority' => 0.8
+                    ];
+                }
             ],
         ]);
     }

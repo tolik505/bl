@@ -36,7 +36,12 @@ class LanguageHelper
     public static function getCurrent()
     {
         if (static::$current === null) {
-            static::$current = static::getDefaultLanguage();
+            $languages = self::getLanguageModels();
+            foreach ($languages as $language) {
+                if ($language->locale == Yii::$app->language) {
+                    return static::$current = $language;
+                }
+            }
         }
         return static::$current;
     }

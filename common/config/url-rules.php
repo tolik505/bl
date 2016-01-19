@@ -8,6 +8,8 @@ return [
     'search/<query>/page/<page>' => 'article/search/index',
     'search/<query>' => 'article/search/index',
     'search' => 'article/search/index',
+    'subscribe' => 'request/default/subscribe',
+    'sitemap' => 'site/sitemap',
     'add-comment' => 'comment/default/add-comment',
     'robots.txt' => 'site/robots',
     'sitemap.xml' => 'sitemap/default/index',

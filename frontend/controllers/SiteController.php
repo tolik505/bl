@@ -85,4 +85,9 @@ class SiteController extends FrontendController
             ]);
         }
     }
+
+    public function actionSitemap()
+    {
+
+    }
 }
