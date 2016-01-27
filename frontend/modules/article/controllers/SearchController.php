@@ -25,7 +25,7 @@ class SearchController extends FrontendController
         $dataProvider = new ActiveDataProvider([
             'query' => $queryData,
             'pagination' => [
-                'pageSize' => 1,
+                'pageSize' => Article::PAGE_SIZE,
                 'pageSizeParam' => false
             ],
         ]);

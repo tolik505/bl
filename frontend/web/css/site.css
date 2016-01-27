@@ -101,7 +101,8 @@ a.desc:after {
 }
 
 body {
-    background-image: url('../themes/basic/images/patterns/8.png');
+    /*background-image: url('../themes/basic/images/patterns/8.png');*/
+    background: white;
 }
 .list-title {
     margin-bottom: 20px;
@@ -142,4 +143,43 @@ body {
 }
 .error-summary ul {
     float: left;
+}
+.syntaxhighlighter .gutter .line {
+    border-right: 3px solid #00afd1 !important;
+}
+.syntaxhighlighter .toolbar {
+    display: none;
+}
+.syntaxhighlighter .variable {
+    color: #00afd1 !important;
+}
+.syntaxhighlighter .functions {
+    color: #F16261 !important;
+}
+.syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .syntaxhighlighter table caption, .syntaxhighlighter textarea {
+    font-size: 15px !important;
+    line-height: 1.3em !important;
+}
+.page-banner {
+    background: none;
+}
+.navbar-brand > img {
+    max-height: 105px;
+}
+.navbar-brand > img.logo-text {
+    max-height: 22px;
+}
+.breadcrumbs-div {
+    min-height: 36px;
+}
+.page-banner {
+    padding-top: 15px;
+}
+.languages {
+    float: right;
+    margin-top: 15px;
+}
+.languages li {
+    border-left: 2px solid #00afd1;
+    padding-left: 15px;
 }

@@ -27,7 +27,11 @@ class LanguageChecker extends Widget
 
         foreach ($models as $language) {
             $params['language'] = $language->code;
-            $this->items[] = Html::a($language->label, $params, ['class' => 'link-line']);
+            if (\Yii::$app->language === $language->locale) {
+                $this->items[] = Html::tag('span', $language->label);
+            } else {
+                $this->items[] = Html::a($language->label, $params);
+            }
         }
         parent::init();
     }
@@ -37,7 +41,7 @@ class LanguageChecker extends Widget
      */
     public function run()
     {
-        return Html::tag('li', implode('</li><li>', $this->items));
+        return Html::tag('ul', Html::tag('li', implode('</li><li>', $this->items)), ['class' => 'languages']);
     }
 
 }

@@ -90,6 +90,8 @@ $(function(){
     });
 
     $(document).on('pjax:end', function() {
+        initSyntaxHighlighter();
+        console.log($('#content').scrollTop());
         $('#loader').fadeOut();
     });
 
@@ -103,4 +105,15 @@ $(function(){
             a.attr('href', href).trigger('click');
         }
     });
+
+    $(document).ready(function(){
+        initSyntaxHighlighter()
+    });
 });
+
+function initSyntaxHighlighter()
+{
+    if ($('.post-content pre').length) {
+        SyntaxHighlighter.highlight();
+    }
+}

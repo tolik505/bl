@@ -5,6 +5,7 @@ use frontend\assets\AppAsset;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+\frontend\assets\SyntaxHighlighterAsset::register($this);
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -21,9 +22,10 @@ AppAsset::register($this);
 <body>
     <?php $this->beginBody() ?>
     <!-- Container -->
-    <div id="container" class="boxed-page">
+    <div id="container">
         <?php \yii\widgets\Pjax::begin([
             'timeout' => 3000,
+            'scrollTo' => 0
         ]) ?>
                 <?= $content ?>
 

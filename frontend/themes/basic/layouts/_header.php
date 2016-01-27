@@ -14,19 +14,12 @@
                     <i class="icon-menu-1"></i>
                 </button>
                 <!-- End Toggle Nav Link For Mobiles -->
-                <a class="navbar-brand" href="<?= Yii::$app->homeUrl ?>">BL</a>
+                <a class="navbar-brand" href="<?= Yii::$app->homeUrl ?>">
+                    <img src="<?= $this->theme->getUrl('images/logo_grey.png') ?>">
+                </a>
             </div>
             <div class="navbar-collapse collapse">
-                <!-- Stat Search -->
-                <!--<div class="search-side">
-                    <a href="#" class="show-search"><i class="icon-search-1"></i></a>
-                    <div class="search-form">
-                        <form autocomplete="off" role="search" method="get" class="searchform" action="#">
-                            <input type="text" value="" name="s" id="s" placeholder="Search the site...">
-                        </form>
-                    </div>
-                </div>-->
-                <!-- End Search -->
+                <?= \frontend\widgets\LanguageChecker::widget() ?>
                 <?= \frontend\widgets\mainMenu\MainMenuWidget::widget() ?>
             </div>
         </div>
@@ -41,16 +34,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>Blog</h2>
-                <p>Blog Page With Right Sidebar</p>
+
             </div>
-            <?php if ($breadcrumbsLinks) { ?>
-                <div class="col-md-6">
+            <div class="col-md-6 breadcrumbs-div">
+                <?php if ($breadcrumbsLinks) { ?>
                     <?= \frontend\components\CustomBreadcrumbs::widget([
                         'links' => $breadcrumbsLinks,
                     ]) ?>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
     </div>
 </div>

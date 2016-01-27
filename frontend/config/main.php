@@ -89,7 +89,6 @@ return [
         ],
         'urlManager' => [
             'enableLanguageDetection' => false,
-            //'languages' => ['ru'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
