@@ -49,8 +49,8 @@ return [
         ],
         'formatter' => [
             'timeZone' => 'UTC',
-            'timeFormat' => IntlDateFormatter::LONG,
-            'dateFormat' => IntlDateFormatter::LONG,
+            /*'timeFormat' => IntlDateFormatter::LONG,
+            'dateFormat' => IntlDateFormatter::LONG,*/
         ],
         'i18n' => [
             'class' => 'Zelenin\yii\modules\I18n\components\I18N',

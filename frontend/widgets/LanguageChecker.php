@@ -33,7 +33,6 @@ class LanguageChecker extends Widget
                 $this->items[] = Html::a($language->label, $params);
             }
         }
-        parent::init();
     }
 
     /**
@@ -41,6 +40,10 @@ class LanguageChecker extends Widget
      */
     public function run()
     {
+        if (count($this->items) < 2) {
+            return false;
+        }
+        
         return Html::tag('ul', Html::tag('li', implode('</li><li>', $this->items)), ['class' => 'languages']);
     }
 

@@ -183,3 +183,12 @@ body {
     border-left: 2px solid #00afd1;
     padding-left: 15px;
 }
+.post-share a.vkontakte {
+    background-color: #507CBE;
+}
+.post-share a.vkontakte:hover {
+    background-color: #3E68A8;
+}
+.icon-vkontakte:before {
+    content: '\ec7d';
+}

@@ -10,8 +10,16 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Menu;
 
+/**
+ * Class MainMenuWidget
+ *
+ * @package frontend\widgets\mainMenu
+ */
 class MainMenuWidget extends Menu
 {
+    /**
+     * Renders the menu.
+     */
     public function run()
     {
         $this->options = [
@@ -30,11 +38,11 @@ class MainMenuWidget extends Menu
             ->from(['t' => ArticleCategory::tableName()])
             ->joinWith(['articles'], true, 'RIGHT JOIN')
             ->andWhere(['t.published' => 1])
-            ->orderBy('t.position DESC')
+            ->orderBy('t.position DESC, t.id')
             ->groupBy('t.id')
             ->all();
         \Yii::$app->params['categoryModels'] = $categories;
-        foreach ($categories as $category){
+        foreach ($categories as $category) {
             $this->items[] = [
                 'label' => $category->label,
                 'url' => [ArticleCategory::getIndexRoute(), 'alias' => $category->alias],

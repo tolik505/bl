@@ -37,7 +37,8 @@
         "rmrevin/yii2-postman": "~2.2",
         "creocoder/yii2-nested-sets": "0.9.*",
         "justinvoelker/yii2-tagging": "*",
-        "giovdk21/yii2-syntaxhighlighter": "dev-master"
+        "giovdk21/yii2-syntaxhighlighter": "dev-master",
+        "ijackua/yii2-sharelinks-widget": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

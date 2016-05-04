@@ -39,14 +39,11 @@ $titleImage = $model->titleImage;
 
                 <div class="post-bottom clearfix">
                     <?= \frontend\modules\article\widgets\articleTags\ArticleTagsWidget::widget(['model' => $model]) ?>
-                    <div class="post-share">
-                        <span><?= Yii::t('app', 'Share This Post') ?>:</span>
-                        <a class="facebook" href="#"><i class="icon-facebook"></i></a>
-                        <a class="twitter" href="#"><i class="icon-twitter"></i></a>
-                        <a class="gplus" href="#"><i class="icon-gplus"></i></a>
-                        <a class="linkedin" href="#"><i class="icon-linkedin-1"></i></a>
-                        <a class="mail" href="#"><i class="icon-mail-4"></i></a>
-                    </div>
+                    <?=  \ijackua\sharelinks\ShareLinks::widget([
+                            'viewName' => '//layouts/social-shares',
+                            'linkSelector' => '.post-share a'
+                        ]
+                    ); ?>
                 </div>
             </div>
             <!-- End Single Post Content -->
